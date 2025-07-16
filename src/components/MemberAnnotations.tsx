@@ -478,22 +478,22 @@ export const MemberAnnotations = ({ member, isOpen, onClose, onSave }: MemberAnn
                               </div>
                             </div>
                             <div className="flex items-center gap-2">
-                              <Popover>
-                                <PopoverTrigger asChild>
-                                  <Button variant="outline" size="sm" className="text-sm">
-                                    <CalendarIcon className="h-4 w-4 mr-2" />
-                                    {format(note.date, "MMM dd, yyyy")}
-                                  </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-auto p-0" align="end">
-                                  <Calendar
-                                    mode="single"
-                                    selected={note.date}
-                                    onSelect={(date) => date && updateNote(note.id, 'date', date)}
-                                    initialFocus
-                                  />
-                                </PopoverContent>
-                              </Popover>
+<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline" size="sm" className="flex items-center">
+      <CalendarIcon className="h-4 w-4 mr-2" />
+      {format(note.date, "MMM dd, yyyy")}
+    </Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-auto p-0" align="end">
+    <Calendar
+      mode="single"
+      selected={note.date}
+      onSelect={(date) => date && updateNote(note.id, 'date', date)}
+      initialFocus
+    />
+  </PopoverContent>
+</Popover>
                               <Button
                                 onClick={() => removeNote(note.id)}
                                 size="sm"
